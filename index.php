@@ -26,7 +26,7 @@ if (!empty($_POST['books'])) {
 
     echo "Importing books <br/>";
 
-    $html = file_get_html("C:/xampp/htdocs/biblesw/index.htm");
+    $html = file_get_html("C:/xampp/htdocs/bibleafrikaans/index.html");
 
     foreach ($html->find('ul') as $ul) {
         foreach ($ul->find('a') as $li) {
@@ -60,7 +60,7 @@ if (!empty($_POST['verses'])) {
 
     echo "Import verses to SQLite db <br/>";
 
-    $path = realpath('C:/xampp/htdocs/biblesw/sw');
+    $path = realpath('C:/xampp/htdocs/bibleafrikaans/af_2');
     $iterator = new RecursiveDirectoryIterator($path);
     $iterator->setFlags(RecursiveDirectoryIterator::SKIP_DOTS);
     $objects = new RecursiveIteratorIterator($iterator);
@@ -105,7 +105,7 @@ if (!empty($_POST['verses'])) {
         }
 //    exit;
     }
-
+    
     $build_query = "INSERT INTO t_sw (id, b, c, v, t) VALUES " . substr(trim($part), 0, -1);
     $db->exec($build_query);
 
@@ -222,7 +222,7 @@ if (!empty($_POST['special_verses'])) {
 class MyDB extends SQLite3 {
 
     function __construct() {
-        $this->open('bible_sw.db');
+        $this->open('bible_afrikaans.db');
     }
 
 }
