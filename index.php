@@ -126,7 +126,7 @@ if (!empty($_POST['category'])) {
 
     $db->exec($sql);
 
-    $html = file_get_html("C:/xampp/htdocs/biblesw/bibles/verses/swahili/index.htm");
+    $html = file_get_html("C:/xampp-backup/htdocs/bibleafrikaans/bibles/verses/afrikaans/index.html");
 
     $categoryText = "";
 
@@ -160,7 +160,7 @@ if (!empty($_POST['special_verses'])) {
 
     $db->exec($sql);
 
-    $path = realpath('C:/xampp/htdocs/biblesw/bibles/verses/swahili');
+    $path = realpath('C:/xampp-backup/htdocs/bibleafrikaans/bibles/verses/afrikaans');
     $iterator = new RecursiveDirectoryIterator($path);
     $iterator->setFlags(RecursiveDirectoryIterator::SKIP_DOTS);
     $objects = new RecursiveIteratorIterator($iterator);
